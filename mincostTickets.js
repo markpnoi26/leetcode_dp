@@ -4,11 +4,35 @@
  * @return {number}
  */
 const mincostTickets = (days, costs) => {
-    
-    
 
+//     const minCost = []
+//     minCost[0] = 0
 
-};
+//     for (let i=0; i<days.length; i++) {
+//         let option1, option7, option30
+
+//         option1 = costs[0] + highestPossibleMin(minCost, minCost[days[i-1]] )
+//         option7 = costs[1] + highestPossibleMin(minCost, minCost[days[i-7]] )
+//         option30 = costs[2] + highestPossibleMin(minCost, minCost[days[i-30]] )
+//         console.log(option1, option7, option30)
+//         minCost[days[i]] = Math.min(option1, option7, option30)
+//     }
+
+//     console.log(minCost)
+//     return minCost[days[days.length-1]]
+// };
+
+// const highestPossibleMin = (minCost, day) => {
+//     if (day <= 0) {
+//         return 0
+//     } else {
+//         while(minCost[day] === undefined) {
+//             day--
+//         }
+//         return minCost[day]
+//     }
+}
+
 
 
 let days = [1, 4, 6, 7, 8, 20], costs = [2, 7, 15]
@@ -23,21 +47,8 @@ option #2 = cost 7 for 7 day
 option #3 = cost 15 for 30 day
 
 check the furthest you can go back on option:
-
-[1,          2,                  3,                   4,                  5,      
-(2, 7, 15)  (2+dp[2-1], 7, 15)  (2+dp[3-1], 7, 15)   (2+dp[4-1], 7,15)   (2+[dp5-1], 7+dp[5-7], 15+dp[5-30]) <= minimum of these options
-2            2+dp[1] = 4         2+dp[2] = 6          2+dp[3] = 8        2+dp[4] = 9
-min = 2               4                   6                      7              7
-
-6,                        7,                           8,                          9,                     
-(2+dp[6-1], 7, 15)    (2+dp[7-1], 7+dp[7-7], 15)   (2+dp[8-1], 7+dp[8-7], 15)  (2+dp[9-1], 7+dp[9-7], 15)
-2+dp[5] = 9            2+dp[6] = 9                   2+dp[7]= 9, 7+dp[1]=9      2+dp[8] = 11, 7+dp[2]= 11
-min = 7                     7                           9                         11
-
-
-10,                               30,                                     31
-(2+dp[10-1], 7+dp[10-7], 15)     (2+dp[30-1], 7+dp[30-7], 15+dp[30-30])   (2+dp[31-1], 7+dp[31-7], 15+dp[31-30])
-2+dp[9] = 13, 7+dp[3] = 13        2+dp[29] = inf, 7+dp[23] = inf           2+dp[30] = 17, 7+dp[24]=inf, 15+dp[1] = 17
-min = 13                            min = 15                                17
-
+     1                     4                             6                           7
+(2, 7, 15)    (2+dp[1], 7+dp[-3], 15+dp[-26])  (2+dp[4], 7+dp[-1], 15+dp[4])  (2+dp[6], 7+dp[0], 15+dp[6])
+    2             4        7        15             6        7       15           8       7        15
+    2                      4                            6
 */
