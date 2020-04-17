@@ -3,15 +3,15 @@
  * @return {number}
  */
 const maxProfit = function(prices) {
-    
-    if (prices.length === 0 || prices.length === 1) return 0
+    let nLen = prices.length
+    if (nLen <= 1) return 0
 
     const dp = []
     dp[0] = {buy: -prices[0], sell: 0}
     dp[1] = {buy: Math.max(-prices[1], -prices[0]), sell: Math.max(dp[0].sell, prices[1] + dp[0].buy)}
     let lastIdx = 1
 
-    for (let i = 2; i <prices.length; i++) {
+    for (let i = 2; i <nLen; i++) {
         let store = {
             buy: Math.max(dp[i-1].buy, dp[i-2].sell-prices[i]),
             sell: Math.max(dp[i-1].buy+prices[i], dp[i-1].sell)
