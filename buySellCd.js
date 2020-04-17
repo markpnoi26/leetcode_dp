@@ -3,7 +3,7 @@
  * @return {number}
  */
 const maxProfit = function(prices) {
-
+    
     if (prices.length === 0 || prices.length === 1) return 0
 
     const dp = []
@@ -16,7 +16,7 @@ const maxProfit = function(prices) {
             buy: Math.max(dp[i-1].buy, dp[i-2].sell-prices[i]),
             sell: Math.max(dp[i-1].buy+prices[i], dp[i-1].sell)
         } 
-        dp.push(store)
+        dp[i] = store
         lastIdx = i
     }
 
